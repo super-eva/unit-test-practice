@@ -11,13 +11,21 @@ describe('holiday', () => {
         mockToday.mockClear()
     });
 
+    function givenToday(month, date) {
+        mockToday.mockReturnValue({ month, date})
+    }
+
+    function shouldResponseBe(expected) {
+        expect(holiday()).toBe(expected)
+    }
+
     it('today is Xmas', () => {
-        mockToday.mockReturnValue({month: 12, date:25})
-        expect(holiday()).toBe('Merry Xmas')
+        givenToday(12, 25);
+        shouldResponseBe('Merry Xmas');
     });
 
     it('today is not Xmas', () => {
-        mockToday.mockReturnValue({month: 12, date:11})
-        expect(holiday()).toBe('Today is not Xmas')
+        givenToday(12, 22);
+        shouldResponseBe('Today is not Xmas')
     });
 });

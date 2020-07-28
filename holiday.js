@@ -1,8 +1,7 @@
-function holiday(){
-    const today = new Date();
-    const month = today.getMonth() + 1;
-    const date = today.getDate();
+import {getToday} from "./getToday";
 
+export function holiday(){
+    const {month, date} = getToday();
     if (month === 12 && date === 25) {
         return 'Merry Xmas';
     }

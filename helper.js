@@ -4,3 +4,7 @@ export function getToday() {
     const date = today.getDate();
     return {month, date};
 }
+
+export function printMessage(message) {
+    console.log(message)
+}
